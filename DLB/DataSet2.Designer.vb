@@ -291,9 +291,7 @@ Partial Public Class DataSet2
         
         Private columntecnico As Global.System.Data.DataColumn
         
-        Private columnexamen As Global.System.Data.DataColumn
-        
-        Private columncosto_examen As Global.System.Data.DataColumn
+        Private columnprecio As Global.System.Data.DataColumn
         
         Private columntipo As Global.System.Data.DataColumn
         
@@ -368,17 +366,9 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property examenColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property precioColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnexamen
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property costo_examenColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columncosto_examen
+                Return Me.columnprecio
             End Get
         End Property
         
@@ -435,9 +425,9 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AddDataTable1Row(ByVal id As Integer, ByVal paciente As String, ByVal fecha As String, ByVal tecnico As String, ByVal examen As String, ByVal costo_examen As Decimal, ByVal tipo As String, ByVal total_recaudado As Decimal) As DataTable1Row
+        Public Overloads Function AddDataTable1Row(ByVal id As Integer, ByVal paciente As String, ByVal fecha As Date, ByVal tecnico As String, ByVal precio() As Byte, ByVal tipo As String, ByVal total_recaudado As Double) As DataTable1Row
             Dim rowDataTable1Row As DataTable1Row = CType(Me.NewRow,DataTable1Row)
-            Dim columnValuesArray() As Object = New Object() {id, paciente, fecha, tecnico, examen, costo_examen, tipo, total_recaudado}
+            Dim columnValuesArray() As Object = New Object() {id, paciente, fecha, tecnico, precio, tipo, total_recaudado}
             rowDataTable1Row.ItemArray = columnValuesArray
             Me.Rows.Add(rowDataTable1Row)
             Return rowDataTable1Row
@@ -464,8 +454,7 @@ Partial Public Class DataSet2
             Me.columnpaciente = MyBase.Columns("paciente")
             Me.columnfecha = MyBase.Columns("fecha")
             Me.columntecnico = MyBase.Columns("tecnico")
-            Me.columnexamen = MyBase.Columns("examen")
-            Me.columncosto_examen = MyBase.Columns("costo_examen")
+            Me.columnprecio = MyBase.Columns("precio")
             Me.columntipo = MyBase.Columns("tipo")
             Me.columntotal_recaudado = MyBase.Columns("total_recaudado")
         End Sub
@@ -477,22 +466,18 @@ Partial Public Class DataSet2
             MyBase.Columns.Add(Me.columnid)
             Me.columnpaciente = New Global.System.Data.DataColumn("paciente", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnpaciente)
-            Me.columnfecha = New Global.System.Data.DataColumn("fecha", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnfecha = New Global.System.Data.DataColumn("fecha", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnfecha)
             Me.columntecnico = New Global.System.Data.DataColumn("tecnico", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columntecnico)
-            Me.columnexamen = New Global.System.Data.DataColumn("examen", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnexamen)
-            Me.columncosto_examen = New Global.System.Data.DataColumn("costo_examen", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columncosto_examen)
+            Me.columnprecio = New Global.System.Data.DataColumn("precio", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnprecio)
             Me.columntipo = New Global.System.Data.DataColumn("tipo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columntipo)
-            Me.columntotal_recaudado = New Global.System.Data.DataColumn("total_recaudado", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            Me.columntotal_recaudado = New Global.System.Data.DataColumn("total_recaudado", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columntotal_recaudado)
             Me.columnpaciente.MaxLength = 60
-            Me.columnfecha.MaxLength = 80
             Me.columntecnico.MaxLength = 200
-            Me.columnexamen.MaxLength = 200
             Me.columntipo.MaxLength = 90
         End Sub
         
@@ -670,10 +655,10 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property fecha() As String
+        Public Property fecha() As Date
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1.fechaColumn),String)
+                    Return CType(Me(Me.tableDataTable1.fechaColumn),Date)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'fecha' de la tabla 'DataTable1' es DBNull.", e)
                 End Try
@@ -700,31 +685,16 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property examen() As String
+        Public Property precio() As Byte()
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1.examenColumn),String)
+                    Return CType(Me(Me.tableDataTable1.precioColumn),Byte())
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'examen' de la tabla 'DataTable1' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'precio' de la tabla 'DataTable1' es DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDataTable1.examenColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property costo_examen() As Decimal
-            Get
-                Try 
-                    Return CType(Me(Me.tableDataTable1.costo_examenColumn),Decimal)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'costo_examen' de la tabla 'DataTable1' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDataTable1.costo_examenColumn) = value
+                Me(Me.tableDataTable1.precioColumn) = value
             End Set
         End Property
         
@@ -745,10 +715,10 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property total_recaudado() As Decimal
+        Public Property total_recaudado() As Double
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1.total_recaudadoColumn),Decimal)
+                    Return CType(Me(Me.tableDataTable1.total_recaudadoColumn),Double)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'total_recaudado' de la tabla 'DataTable1' es DBNull.", e)
                 End Try
@@ -808,26 +778,14 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsexamenNull() As Boolean
-            Return Me.IsNull(Me.tableDataTable1.examenColumn)
+        Public Function IsprecioNull() As Boolean
+            Return Me.IsNull(Me.tableDataTable1.precioColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetexamenNull()
-            Me(Me.tableDataTable1.examenColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function Iscosto_examenNull() As Boolean
-            Return Me.IsNull(Me.tableDataTable1.costo_examenColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub Setcosto_examenNull()
-            Me(Me.tableDataTable1.costo_examenColumn) = Global.System.Convert.DBNull
+        Public Sub SetprecioNull()
+            Me(Me.tableDataTable1.precioColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1025,8 +983,7 @@ Namespace DataSet2TableAdapters
             tableMapping.ColumnMappings.Add("paciente", "paciente")
             tableMapping.ColumnMappings.Add("fecha", "fecha")
             tableMapping.ColumnMappings.Add("tecnico", "tecnico")
-            tableMapping.ColumnMappings.Add("examen", "examen")
-            tableMapping.ColumnMappings.Add("costo_examen", "costo_examen")
+            tableMapping.ColumnMappings.Add("precio", "precio")
             tableMapping.ColumnMappings.Add("tipo", "tipo")
             tableMapping.ColumnMappings.Add("total_recaudado", "total_recaudado")
             Me._adapter.TableMappings.Add(tableMapping)
@@ -1045,7 +1002,7 @@ Namespace DataSet2TableAdapters
             Me._commandCollection = New Global.System.Data.Odbc.OdbcCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.Odbc.OdbcCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "select * from bien"
+            Me._commandCollection(0).CommandText = "select * from bien"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         

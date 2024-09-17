@@ -12,7 +12,7 @@
               <DbSource ConnectionRef="dlbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>select * from pepe </CommandText>
+                    <CommandText>select * from pepe</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -23,8 +23,7 @@
               <Mapping SourceColumn="paciente" DataSetColumn="paciente" />
               <Mapping SourceColumn="fecha" DataSetColumn="fecha" />
               <Mapping SourceColumn="tecnico" DataSetColumn="tecnico" />
-              <Mapping SourceColumn="examen" DataSetColumn="examen" />
-              <Mapping SourceColumn="costo_examen" DataSetColumn="costo_examen" />
+              <Mapping SourceColumn="precio" DataSetColumn="precio" />
               <Mapping SourceColumn="tipo" DataSetColumn="tipo" />
             </Mappings>
             <Sources />
@@ -48,13 +47,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="fecha" msprop:Generator_ColumnPropNameInRow="fecha" msprop:Generator_ColumnPropNameInTable="fechaColumn" msprop:Generator_ColumnVarNameInTable="columnfecha" msprop:Generator_UserColumnName="fecha" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="80" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
+              <xs:element name="fecha" msprop:Generator_ColumnPropNameInRow="fecha" msprop:Generator_ColumnPropNameInTable="fechaColumn" msprop:Generator_ColumnVarNameInTable="columnfecha" msprop:Generator_UserColumnName="fecha" type="xs:dateTime" minOccurs="0" />
               <xs:element name="tecnico" msprop:Generator_ColumnPropNameInRow="tecnico" msprop:Generator_ColumnPropNameInTable="tecnicoColumn" msprop:Generator_ColumnVarNameInTable="columntecnico" msprop:Generator_UserColumnName="tecnico" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -62,14 +55,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="examen" msprop:Generator_ColumnPropNameInRow="examen" msprop:Generator_ColumnPropNameInTable="examenColumn" msprop:Generator_ColumnVarNameInTable="columnexamen" msprop:Generator_UserColumnName="examen" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="200" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="costo_examen" msprop:Generator_ColumnPropNameInRow="costo_examen" msprop:Generator_ColumnPropNameInTable="costo_examenColumn" msprop:Generator_ColumnVarNameInTable="columncosto_examen" msprop:Generator_UserColumnName="costo_examen" type="xs:decimal" minOccurs="0" />
+              <xs:element name="precio" msprop:Generator_ColumnPropNameInRow="precio" msprop:Generator_ColumnPropNameInTable="precioColumn" msprop:Generator_ColumnVarNameInTable="columnprecio" msprop:Generator_UserColumnName="precio" type="xs:base64Binary" minOccurs="0" />
               <xs:element name="tipo" msprop:Generator_ColumnPropNameInRow="tipo" msprop:Generator_ColumnPropNameInTable="tipoColumn" msprop:Generator_ColumnVarNameInTable="columntipo" msprop:Generator_UserColumnName="tipo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">

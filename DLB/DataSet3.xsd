@@ -12,7 +12,8 @@
               <DbSource ConnectionRef="dlbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>select * from todo</CommandText>
+                    <CommandText>select * from todo
+</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -31,7 +32,7 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="DataSet3" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="DataSet3" msprop:Generator_DataSetName="DataSet3">
+  <xs:element name="DataSet3" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DataSet3" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet3">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="DataTable1" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_UserTableName="DataTable1">
@@ -45,14 +46,8 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="cantidad_examenes" msprop:Generator_ColumnPropNameInRow="cantidad_examenes" msprop:Generator_ColumnPropNameInTable="cantidad_examenesColumn" msprop:Generator_ColumnVarNameInTable="columncantidad_examenes" msprop:Generator_UserColumnName="cantidad_examenes" type="xs:long" />
-              <xs:element name="total_recaudado" msprop:Generator_ColumnPropNameInRow="total_recaudado" msprop:Generator_ColumnPropNameInTable="total_recaudadoColumn" msprop:Generator_ColumnVarNameInTable="columntotal_recaudado" msprop:Generator_UserColumnName="total_recaudado" type="xs:decimal" minOccurs="0" />
-              <xs:element name="examenes_realizados" msprop:Generator_ColumnPropNameInRow="examenes_realizados" msprop:Generator_ColumnPropNameInTable="examenes_realizadosColumn" msprop:Generator_ColumnVarNameInTable="columnexamenes_realizados" msprop:Generator_UserColumnName="examenes_realizados" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2048" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
+              <xs:element name="total_recaudado" msprop:Generator_ColumnPropNameInRow="total_recaudado" msprop:Generator_ColumnPropNameInTable="total_recaudadoColumn" msprop:Generator_ColumnVarNameInTable="columntotal_recaudado" msprop:Generator_UserColumnName="total_recaudado" type="xs:double" minOccurs="0" />
+              <xs:element name="examenes_realizados" msprop:Generator_ColumnPropNameInRow="examenes_realizados" msprop:Generator_ColumnPropNameInTable="examenes_realizadosColumn" msprop:Generator_ColumnVarNameInTable="columnexamenes_realizados" msprop:Generator_UserColumnName="examenes_realizados" type="xs:base64Binary" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

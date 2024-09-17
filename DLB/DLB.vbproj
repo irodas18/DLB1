@@ -148,15 +148,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DataSet1.vb">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </Compile>
     <Compile Include="DataSet2.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DataSet2.vb">
       <DependentUpon>DataSet2.xsd</DependentUpon>
     </Compile>
     <Compile Include="DataSet3.Designer.vb">
@@ -168,6 +162,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.Designer.vb">
+      <DependentUpon>Form2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Examenes.Designer.vb">
       <DependentUpon>Examenes.vb</DependentUpon>
@@ -227,14 +227,11 @@
     <Compile Include="Reporte general.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="semanal.Designer.vb">
-      <DependentUpon>semanal.vb</DependentUpon>
-    </Compile>
-    <Compile Include="semanal.vb">
-      <SubType>Form</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Examenes.resx">
       <DependentUpon>Examenes.vb</DependentUpon>
     </EmbeddedResource>
@@ -244,6 +241,7 @@
     <EmbeddedResource Include="Forms\Registros.resx">
       <DependentUpon>Registros.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="johndesayuno.rdlc" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -257,7 +255,6 @@
       <DependentUpon>personal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report1.rdlc" />
-    <EmbeddedResource Include="Report2.rdlc" />
     <EmbeddedResource Include="Report3.rdlc" />
     <EmbeddedResource Include="Report4.rdlc" />
     <EmbeddedResource Include="Reporte 1.resx">
@@ -265,9 +262,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reporte general.resx">
       <DependentUpon>Reporte general.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="semanal.resx">
-      <DependentUpon>semanal.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

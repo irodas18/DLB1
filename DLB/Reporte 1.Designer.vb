@@ -30,9 +30,11 @@ Partial Class Reporte_1
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.DataTable1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataTable1TableAdapter = New DLB.DataSet1TableAdapters.DataTable1TableAdapter()
+        Me.DataTable1BindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
         CType(Me.DataTable1BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataTable1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataTable1BindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DataTable1BindingSource1
@@ -50,9 +52,9 @@ Partial Class Reporte_1
         Me.ReportViewer1.BackgroundImage = CType(resources.GetObject("ReportViewer1.BackgroundImage"), System.Drawing.Image)
         Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
         ReportDataSource1.Name = "DataSet1"
-        ReportDataSource1.Value = Me.DataTable1BindingSource1
+        ReportDataSource1.Value = Me.DataTable1BindingSource
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "DLB.Report1.rdlc"
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "DLB.johndesayuno.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ServerReport.BearerToken = Nothing
@@ -68,6 +70,11 @@ Partial Class Reporte_1
         '
         Me.DataTable1TableAdapter.ClearBeforeFill = True
         '
+        'DataTable1BindingSource2
+        '
+        Me.DataTable1BindingSource2.DataMember = "DataTable1"
+        Me.DataTable1BindingSource2.DataSource = Me.DataSet1
+        '
         'Reporte_1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -80,6 +87,7 @@ Partial Class Reporte_1
         CType(Me.DataTable1BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataTable1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataTable1BindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -89,4 +97,5 @@ Partial Class Reporte_1
     Friend WithEvents DataTable1BindingSource As BindingSource
     Friend WithEvents DataTable1TableAdapter As DataSet1TableAdapters.DataTable1TableAdapter
     Friend WithEvents DataTable1BindingSource1 As BindingSource
+    Friend WithEvents DataTable1BindingSource2 As BindingSource
 End Class
