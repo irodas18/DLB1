@@ -395,7 +395,7 @@ Partial Public Class DataSet3
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AddDataTable1Row(ByVal paciente As String, ByVal cantidad_examenes As Long, ByVal total_recaudado As Double, ByVal examenes_realizados() As Byte) As DataTable1Row
+        Public Overloads Function AddDataTable1Row(ByVal paciente As String, ByVal cantidad_examenes As Long, ByVal total_recaudado As Decimal, ByVal examenes_realizados As String) As DataTable1Row
             Dim rowDataTable1Row As DataTable1Row = CType(Me.NewRow,DataTable1Row)
             Dim columnValuesArray() As Object = New Object() {paciente, cantidad_examenes, total_recaudado, examenes_realizados}
             rowDataTable1Row.ItemArray = columnValuesArray
@@ -433,12 +433,13 @@ Partial Public Class DataSet3
             MyBase.Columns.Add(Me.columnpaciente)
             Me.columncantidad_examenes = New Global.System.Data.DataColumn("cantidad_examenes", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columncantidad_examenes)
-            Me.columntotal_recaudado = New Global.System.Data.DataColumn("total_recaudado", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            Me.columntotal_recaudado = New Global.System.Data.DataColumn("total_recaudado", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columntotal_recaudado)
-            Me.columnexamenes_realizados = New Global.System.Data.DataColumn("examenes_realizados", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnexamenes_realizados = New Global.System.Data.DataColumn("examenes_realizados", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnexamenes_realizados)
             Me.columnpaciente.MaxLength = 60
             Me.columncantidad_examenes.AllowDBNull = false
+            Me.columnexamenes_realizados.MaxLength = 2048
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -611,10 +612,10 @@ Partial Public Class DataSet3
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property total_recaudado() As Double
+        Public Property total_recaudado() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1.total_recaudadoColumn),Double)
+                    Return CType(Me(Me.tableDataTable1.total_recaudadoColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'total_recaudado' de la tabla 'DataTable1' es DBNull.", e)
                 End Try
@@ -626,10 +627,10 @@ Partial Public Class DataSet3
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property examenes_realizados() As Byte()
+        Public Property examenes_realizados() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1.examenes_realizadosColumn),Byte())
+                    Return CType(Me(Me.tableDataTable1.examenes_realizadosColumn),String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'examenes_realizados' de la tabla 'DataTable1' es DBNull.", e)
                 End Try
@@ -862,7 +863,7 @@ Namespace DataSet3TableAdapters
             Me._commandCollection = New Global.System.Data.Odbc.OdbcCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.Odbc.OdbcCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "select * from todo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
+            Me._commandCollection(0).CommandText = "select * from todo "
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         

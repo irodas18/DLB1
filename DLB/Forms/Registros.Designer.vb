@@ -99,9 +99,9 @@ Partial Class Registros
         Me.Label5.BackColor = System.Drawing.SystemColors.Highlight
         Me.Label5.Location = New System.Drawing.Point(349, 108)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(45, 13)
+        Me.Label5.Size = New System.Drawing.Size(37, 13)
         Me.Label5.TabIndex = 9
-        Me.Label5.Text = "Examen"
+        Me.Label5.Text = "Precio"
         '
         'Label6
         '

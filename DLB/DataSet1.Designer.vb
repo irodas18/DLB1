@@ -415,7 +415,7 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AddDataTable1Row(ByVal id As Integer, ByVal paciente As String, ByVal fecha As Date, ByVal tecnico As String, ByVal precio() As Byte, ByVal tipo As String) As DataTable1Row
+        Public Overloads Function AddDataTable1Row(ByVal id As Integer, ByVal paciente As String, ByVal fecha As Date, ByVal tecnico As String, ByVal precio As Decimal, ByVal tipo As String) As DataTable1Row
             Dim rowDataTable1Row As DataTable1Row = CType(Me.NewRow,DataTable1Row)
             Dim columnValuesArray() As Object = New Object() {id, paciente, fecha, tecnico, precio, tipo}
             rowDataTable1Row.ItemArray = columnValuesArray
@@ -465,7 +465,7 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me.columnfecha)
             Me.columntecnico = New Global.System.Data.DataColumn("tecnico", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columntecnico)
-            Me.columnprecio = New Global.System.Data.DataColumn("precio", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnprecio = New Global.System.Data.DataColumn("precio", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnprecio)
             Me.columntipo = New Global.System.Data.DataColumn("tipo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columntipo)
@@ -677,10 +677,10 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property precio() As Byte()
+        Public Property precio() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1.precioColumn),Byte())
+                    Return CType(Me(Me.tableDataTable1.precioColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'precio' de la tabla 'DataTable1' es DBNull.", e)
                 End Try
